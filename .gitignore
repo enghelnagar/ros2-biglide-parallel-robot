@@ -1,0 +1,55 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# ROS 2 build artifacts
+build/
+install/
+log/
+*.colcon_install_layout
+COLCON_IGNORE
+
+# C++ / CMake artifacts
+CMakeFiles/
+CMakeCache.txt
+*.cmake
+*.o
+*.a
+*.dylib
+
+# Gazebo temporary files
+*.log
+*.log.*
+*.pid
+
+# Confidential & Report documents (Strictly excluded)
+*.pdf
+*.tex
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.bbl
+*.blg
+*.zip
+*.rar
+*.7z
+*.tar.gz
+
+# IDE & OS files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
