@@ -37,19 +37,32 @@ The Biglide consists of two vertical actuated prismatic sliders ($A_1$ and $A_2$
 
 ### Mathematical Summary
 
-- **Kinematic Constraints**:
-  $$\mathbf{A}_r \dot{\mathbf{x}} + \mathbf{B} \dot{\mathbf{q}}_a = \mathbf{0}$$
-  $$\mathbf{A}_r = \begin{bmatrix} \cos\phi_1 & \sin\phi_1 \\ \cos\phi_2 & \sin\phi_2 \end{bmatrix}, \quad \mathbf{B} = -\text{diag}(\sin\phi_1, \sin\phi_2)$$
+#### 1. First-Order Kinematic Constraints
+```math
+\mathbf{A}_r \dot{\mathbf{x}} + \mathbf{B} \dot{\mathbf{q}}_a = \mathbf{0}
+```
+where the parallel constraint matrices are defined as:
+```math
+\mathbf{A}_r = \begin{bmatrix} \cos\phi_1 & \sin\phi_1 \\ \cos\phi_2 & \sin\phi_2 \end{bmatrix}, \quad \mathbf{B} = -\begin{bmatrix} \sin\phi_1 & 0 \\ 0 & \sin\phi_2 \end{bmatrix}
+```
 
-- **Inverse Jacobian**:
-  $$\mathbf{J}^{-1} = -\mathbf{B}^{-1} \mathbf{A}_r = \begin{bmatrix} \cot\phi_1 & 1 \\ \cot\phi_2 & 1 \end{bmatrix}$$
+#### 2. Inverse Jacobian
+```math
+\mathbf{J}^{-1} = -\mathbf{B}^{-1} \mathbf{A}_r = \begin{bmatrix} \cot\phi_1 & 1 \\ \cot\phi_2 & 1 \end{bmatrix}
+```
 
-- **Second-Order Constraints**:
-  $$\mathbf{A}_r \ddot{\mathbf{x}} + \mathbf{B} \ddot{\mathbf{q}}_a + \mathbf{b}_p = \mathbf{0}, \quad \mathbf{b}_p = \begin{bmatrix} l \dot{\phi}_1^2 \\ l \dot{\phi}_2^2 \end{bmatrix}$$
+#### 3. Second-Order Kinematics
+```math
+\mathbf{A}_r \ddot{\mathbf{x}} + \mathbf{B} \ddot{\mathbf{q}}_a + \mathbf{b}_p = \mathbf{0}, \quad \mathbf{b}_p = \begin{bmatrix} l \dot{\phi}_1^2 \\ l \dot{\phi}_2^2 \end{bmatrix}
+```
 
-- **Equations of Motion**:
-  $$\boldsymbol{\tau} = \mathbf{M}(\mathbf{q}_a) \ddot{\mathbf{q}}_a + \mathbf{c}(\mathbf{q}_a, \dot{\mathbf{q}}_a)$$
-  $$\mathbf{M}(\mathbf{q}_a) = m_f \mathbf{I}_{2\times 2} + m_p \mathbf{J}^T \mathbf{J}, \quad \mathbf{c}(\mathbf{q}_a, \dot{\mathbf{q}}_a) = m_p \mathbf{J}^T \mathbf{a}_t$$
+#### 4. Equations of Motion (Inverse Dynamics)
+```math
+\boldsymbol{\tau} = \mathbf{M}(\mathbf{q}_a) \ddot{\mathbf{q}}_a + \mathbf{c}(\mathbf{q}_a, \dot{\mathbf{q}}_a)
+```
+```math
+\mathbf{M}(\mathbf{q}_a) = m_f \mathbf{I}_{2\times 2} + m_p \mathbf{J}^T \mathbf{J}, \quad \mathbf{c}(\mathbf{q}_a, \dot{\mathbf{q}}_a) = m_p \mathbf{J}^T \mathbf{a}_t
+```
 
 ---
 
@@ -169,10 +182,10 @@ ros2 launch lab_amoro gazebo.launch.py
 
 # 4. In a separate terminal, run the Computed Torque Controller
 source ~/amoro_ws/install/setup.bash
-python3 src/scripts/control.py
+python3 src/scripts/control.py  # or python3 scripts/control.py depending on workspace root
 
 # 5. Run the automated model evaluation benchmark
-python3 src/scripts/model_eval.py
+python3 src/scripts/model_eval.py  # or python3 scripts/model_eval.py
 ```
 
 ---
