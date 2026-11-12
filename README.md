@@ -193,7 +193,5 @@ python3 src/scripts/model_eval.py  # or python3 scripts/model_eval.py
 ## Author
 
 - **Hussein Elnaggar**
-  - GitHub: [@enghelnagar](https://github.com/enghelnagar)
-  - Program: M2 IMARO (Advanced Robotics), École Centrale de Nantes
-
-Collaborator: Sriram Pandian.
+  - LinkedIn: [@enghelnagar](https://www.linkedin.com/in/eng-h-elnaggar/)
+  - Program: M2 EMARO+ (Advanced Robotics)
